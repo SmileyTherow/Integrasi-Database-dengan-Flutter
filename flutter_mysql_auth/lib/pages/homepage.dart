@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'UserListPage.dart';
 
 class HomePage extends StatelessWidget {
   final String username;
@@ -60,9 +61,9 @@ class HomePage extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              "Selamat Datang $username",
-                              style: const TextStyle(
+                            const Text(
+                              "Selamat Datang",
+                              style: TextStyle(
                                 color: Colors.white70,
                                 fontSize: 16,
                               ),
@@ -104,6 +105,24 @@ class HomePage extends StatelessWidget {
                   crossAxisSpacing: 15,
                   mainAxisSpacing: 15,
                   children: [
+                    // DAFTAR USER
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const UserListPage(),
+                          ),
+                        );
+                      },
+                      child: menuCard(
+                        icon: Icons.people,
+                        title: "Daftar User",
+                        color: Colors.blue,
+                      ),
+                    ),
+
+                    // LOGOUT
                     GestureDetector(
                       onTap: () {
                         showDialog(
